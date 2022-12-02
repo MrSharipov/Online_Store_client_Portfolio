@@ -147,7 +147,7 @@ const EditProduct = () => {
             </Label>
             </FormGroup>
             <Button type='submit' color="primary">
-            Create
+            Update
             </Button>
         </Form>
     </div>
