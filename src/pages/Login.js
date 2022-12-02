@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import {Form, FormGroup, Label, Input, Button, FormText} from 'reactstrap'
-import { useNavigate, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
     async function getToken(email, password){
         try{
             const res = await axios.post("http://localhost:3040/auth/signin", {email, password});
             localStorage.setItem("store_access_token", res.data.access_token);
-            navigate("/");
+            window.location.replace("/");
         }
         catch(err){
             alert(err.response.data.message);
@@ -41,7 +40,6 @@ const Login = () => {
                 Email
             </Label>
             </FormGroup>
-            {' '}
             <FormGroup floating>
             <Input
                 id="examplePassword"
@@ -55,7 +53,6 @@ const Login = () => {
                 Password
             </Label>
             </FormGroup>
-            {' '}
             <Button type='submit' color='primary'>
             Log in
             </Button>
