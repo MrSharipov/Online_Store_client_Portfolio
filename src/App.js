@@ -16,6 +16,7 @@ import Admin from "./pages/Admin";
 import AddCategory from "./components/dashboard/AddCategory";
 import AddProduct from "./components/dashboard/AddProduct";
 import AllProducts from "./components/AllProducts";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/edituser" element={<EditUser />} />
           <Route path="/editproduct/:id" element={<EditProduct />} />
           <Route path="/products" element={<AllProducts />} />
+          <Route path="/yourbag" element={<Cart />} />
         </Routes>
       </Navbar>
     </BrowserRouter>

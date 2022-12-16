@@ -1,6 +1,11 @@
 import React from "react";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux'
+
+import { useDispatch } from 'react-redux'
+import { addItem } from '../redux/userSlice'
+
 
 const Navbar = (props) => {
   let decodedJwt;
@@ -17,6 +22,12 @@ const Navbar = (props) => {
     localStorage.clear();
     window.location.replace("/login");
   }
+
+  const dispatch = useDispatch()
+  const all_Items = JSON.parse(localStorage.getItem("all_Items")) || [];
+  dispatch(addItem({amount: all_Items.length}));
+  const count = useSelector((state) => state.user.itemAmount)
+
  
   return (
     <>
@@ -30,8 +41,8 @@ const Navbar = (props) => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/yourbag">Cart</Link>
+          <li className="cartItem">
+            <Link to="/yourbag">Cart</Link><span className="count">{count}</span>
           </li>
          
             {isLogged ?  <li><Link to="/admin">Dashboard</Link></li>: ""}

@@ -36,6 +36,7 @@ const Home = () => {
             {ctg.Products.map(product => 
                 <ItemCard
                     key={product.id} 
+                    id={product.id} 
                     name={product.name}
                     link={product.link}
                     price={product.price}
