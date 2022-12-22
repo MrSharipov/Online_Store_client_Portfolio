@@ -15,7 +15,7 @@ const AllProducts = () => {
 
   useEffect(()=> {
     async function getProducts () {
-      await axios.get("http://localhost:3040/products/all", config)
+      await axios.get("http://localhost:3040/products/user/products", config)
       .then((res)=>{
         setProducts(res.data);
       })

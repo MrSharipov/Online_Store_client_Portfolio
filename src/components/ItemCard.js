@@ -6,9 +6,9 @@ import { addItem } from '../redux/userSlice'
 const ItemCard = (props) => {
     const dispatch = useDispatch()
     
-    function addToCart(id) {
-        const all_Items = JSON.parse(localStorage.getItem("all_Items")) || [];
-        all_Items.push(id);
+    function addToCart(productId) {
+        let all_Items = JSON.parse(localStorage.getItem("all_Items")) || [];
+        all_Items.push(productId);
         localStorage.setItem("all_Items", JSON.stringify(all_Items));
         dispatch(addItem({amount: all_Items.length}));
     }

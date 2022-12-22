@@ -7,6 +7,11 @@ form {
   flex-direction: column;
   align-items: center;
 }
+._center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 a {
   text-decoration: none;
 }
@@ -93,4 +98,11 @@ ul {
   border-radius: 50%;
   height: 25px;
   width: 30px;
+}
+
+.cartImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }

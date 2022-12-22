@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
@@ -25,8 +25,14 @@ const Navbar = (props) => {
 
   const dispatch = useDispatch()
   const all_Items = JSON.parse(localStorage.getItem("all_Items")) || [];
-  dispatch(addItem({amount: all_Items.length}));
+  
+  useEffect(()=>{
+    dispatch(addItem({amount: all_Items.length}));
+        // eslint-disable-next-line
+  },[])
+
   const count = useSelector((state) => state.user.itemAmount)
+
 
  
   return (

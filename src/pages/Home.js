@@ -8,14 +8,8 @@ const Home = () => {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
     useEffect(()=>{
-         //Authorization
-      let config = {
-        headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem("store_access_token")
-        }
-      }
     const getCategories = async() => {
-        await axios.get("http://localhost:3040/categories/all", config)
+        await axios.get("http://localhost:3040/categories/all")
         .then((res) => {
             setCategories(res.data);
           })
